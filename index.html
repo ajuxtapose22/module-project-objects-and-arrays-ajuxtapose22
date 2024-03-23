@@ -56,9 +56,13 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice() {
+    function deletePrice(car) {
+      if (car.price !== undefined)
+      delete car.price
+      else { car.priceless = true}
+      return car 
+    } 
 
-    }
 
     // 👉 CHALLENGE 4
     // 🧠 The function evenList takes an array as its argument and returns true if the array has an even number of elements, false otherwise.
@@ -67,9 +71,16 @@
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
-
+      let numOfElements = arr.length
+      let isEven = numOfElements % 2 === 0
+      let isOdd = numOfElements % 2 === 1
+      
+      if (isEven){ 
+      return true}
+     return false
     }
-
+    
+  
     // 👉 CHALLENGE 5
     // 🧠 The function firstOrLast takes an array as the first argument, and a Boolean as the second.
     // 🧠 If the Boolean is true, the function returns the first element of the array, otherwise the last one.
