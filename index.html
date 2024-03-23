@@ -30,7 +30,7 @@
       };
    return name;
     }
-     console.log (name)
+    //  console.log (name)
 
 
     // 👉 CHALLENGE 2
@@ -46,7 +46,7 @@
     return result;
   }
 
-    
+  
 
     // 👉 CHALLENGE 3
     // 🧠 The function deletePrice takes an object as its argument and deletes its "price" property if it exists.
@@ -87,9 +87,13 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
-
+    function firstOrLast(varA, varB) {
+      if (varB) {
+        return varA[0];
+      }
+      return varA[varA.length - 1];
     }
+
 
     // 👉 CHALLENGE 6
     // 🧠 The function pushElement takes an array as the first argument, and any value we wish as the second.
@@ -97,9 +101,11 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(arg1, val1) {
+      arg1[arg1.length] = val1
+      return arg1
     }
+
 
     // 👉 CHALLENGE 7
     // 🧠 The function stripX takes a string as its argument.
@@ -113,7 +119,21 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
+    function stripX(anyString) {
+      let result = []
+      let splitString = anyString.split('')
+      // console.log (splitString)
+      for (let stringInput in splitString){
+        let input = splitString[stringInput]
+        if (input !== "x") {
+          result[result.length] = input
+        }
+      } 
+      // console.log(result)
+      
+      let joined = result.join ('')
+      // console.log(joined)
+      return joined
 
     }
 
@@ -126,9 +146,21 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
-
+    function stripChar(anyStringHere, character ) {
+      let result = []
+      let splitStr = anyStringHere.split('')
+      for (let idx in splitStr) {
+        let char = splitStr[idx]
+        // console.log(character)
+        if (char !== character) {
+          result[result.length] = char
+        }
+        
+      }
+      return result.join('')
     }
+
+
 
     // 👉 CHALLENGE 9
     // 🧠 The function getProps takes an object as its argument.
@@ -139,9 +171,18 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
-
+    function getProps(obj) {
+      let result = []
+      for (let key in obj) {
+        if (key !== "age" && key !== "married"){
+          result[result.length] = key
+        }
+      }
+      return result
+     
     }
+
+
 
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
